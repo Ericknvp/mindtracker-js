@@ -1,0 +1,94 @@
+1. Manipulación del DOM
+En la web de escritorio, solemos manipular el DOM para cambiar el diseño de la página completa o mover elementos. Aquí seleccionaremos el "Dropdown" (la cajita que cae) para controlar su visibilidad.
+
+JavaScript
+// Localizamos la foto de perfil y el cuadro desplegable
+const fotoPerfil = document.querySelector('.user-avatar');
+const dropdown = document.querySelector('.dropdown-menu');
+
+// Manipulación directa: Podemos cambiar el estilo para que empiece oculto
+dropdown.style.opacity = "0"; 
+2. Eventos
+En escritorio, además del click, usamos eventos como mouseenter (cuando el ratón entra) o mouseleave (cuando sale). Pero para un menú de perfil, lo más profesional es el Click.
+
+JavaScript
+// Escuchamos el click en la foto
+fotoPerfil.addEventListener('click', () => {
+    console.log("El usuario quiere ver sus ajustes");
+    ejecutarLogicaMenu();
+});
+3. Estado (State)
+El estado en la web es lo que define qué está viendo el usuario. Si el usuario está "Logueado", el estado de la barra de navegación cambia para mostrar su nombre en lugar de un botón de "Iniciar sesión".
+
+Para nuestro menú, el estado será una variable booleana (verdadero/falso).
+
+JavaScript
+// El estado inicial es: el menú no se ve
+let estaVisible = false;
+
+function ejecutarLogicaMenu() {
+    // Invertimos el valor: si es false pasa a true
+    estaVisible = !estaVisible;
+    
+    renderizarMenu();
+}
+4. Render Dinámico
+Aquí es donde ocurre la "magia". Dependiendo de si estaVisible es real, le diremos al navegador que dibuje el menú con una animación o lo quite.
+
+JavaScript
+function renderizarMenu() {
+    if (estaVisible) {
+        // Render dinámico: cambiamos clases de CSS para que aparezca con suavidad
+        dropdown.classList.add('menu-abierto');
+        dropdown.innerHTML = `
+            <ul>
+                <li>Mi Perfil</li>
+                <li>Configuración</li>
+                <li class="logout">Cerrar Sesión</li>
+            </ul>
+        `;
+    } else {
+        dropdown.classList.remove('menu-abierto');
+        dropdown.innerHTML = ""; // Limpiamos el contenido para ahorrar recursos
+    }
+}
+Ejemplo Completo: El Menú "Desktop"
+Imagina este flujo en tu código:
+
+JavaScript
+// DATA/ESTADO
+let usuarioLogueado = true;
+let menuAbierto = false;
+
+// ELEMENTOS (DOM)
+const contenedorNav = document.getElementById('navbar-right');
+
+// LOGICA DE RENDER
+function actualizarNav() {
+    if (usuarioLogueado) {
+        // Si está logueado, inyectamos la foto de perfil dinámicamente
+        contenedorNav.innerHTML = `<img src="avatar.jpg" id="avatar" class="pic">`;
+        
+        // Como el elemento se creó recién, le asignamos el EVENTO ahora
+        document.getElementById('avatar').onclick = () => {
+            menuAbierto = !menuAbierto;
+            mostrarOpciones(menuAbierto);
+        };
+    }
+}
+
+function mostrarOpciones(abrir) {
+    const lista = document.getElementById('lista-dropdown');
+    // Render dinámico basado en el estado 'abrir'
+    lista.style.display = abrir ? 'block' : 'none';
+}
+
+actualizarNav();
+Resumen para tu aprendizaje:
+DOM: Son los "ladrillos" (etiquetas HTML) que JS puede tocar.
+
+Eventos: Es el "cuándo" ocurre algo (hacer click, mover el ratón).
+
+Estado: Es la "verdad" de tu app (¿está abierto?, ¿hay usuario?).
+
+Render: Es el acto de "dibujar" el cambio en la pantalla basándose en el estado.
