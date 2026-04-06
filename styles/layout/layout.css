@@ -1,0 +1,66 @@
+/* Manejo de estructuras y responsividad del dashboard. */
+
+.containerFather {
+  border: 1px solid blue;
+  height: 100vh;
+  padding: 0 10%;
+  padding-top: 6vh;
+}
+
+.containerFather header {
+  border: 1px solid red;
+  height: 16vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerFather main {
+  border: 1px solid black;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.dashboardContainer section {
+  border: 1px solid rgb(94, 94, 0);
+  color: black;
+  padding: 10px;
+}
+.counter {
+  flex: 1;
+}
+.addTasks {
+  flex: 2.7;
+}
+
+@media screen and (max-width: 992px) {
+  .containerFather main {
+    flex-direction: column;
+    height: auto;
+  }
+  .counter,
+  .addTasks {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .containerFather {
+    padding: 4vh 5%;
+  }
+  .containerFather header {
+    height: 12vh;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .containerFather header {
+    height: 10vh;
+  }
+  .dashboardContainer section {
+    padding: 5px;
+  }
+}
