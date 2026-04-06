@@ -10,36 +10,40 @@
     <div class="containerFather">
       <header class="headerContainer">
         <div class="logo">
-          <div class="iconLogo">[SVG Logo]</div>
+          <div class="iconLogo" data-icon="logo"></div>
           <h1>MindTracker</h1>
         </div>
+
         <div class="buttons">
           <button
             type="button"
             class="actionButton"
             aria-label="Descargar datos"
-          >
-            [SVG Descargar]
-          </button>
-          <button type="button" class="actionButton" aria-label="Cambiar tema">
-            [SVG Sol/Luna]
-          </button>
+            data-icon="descargar"
+          ></button>
+
+          <button
+            type="button"
+            class="actionButton"
+            aria-label="Cambiar tema"
+            data-icon="sol"
+          ></button>
         </div>
       </header>
 
       <main class="dashboardContainer">
         <aside class="counter">
           <section class="titleCounterSection">
-            <div class="iconDash">[SVG Gráfica]</div>
+            <div class="iconDash" data-icon="grafica"></div>
             <h3>Rendimiento</h3>
           </section>
 
           <section class="counters">
-            <div class="total">
+            <div class="total cardCounter">
               <h3>0</h3>
               <p>Total</p>
             </div>
-            <div class="lists">
+            <div class="lists cardCounter">
               <h3>0</h3>
               <p>Listas</p>
             </div>
@@ -47,11 +51,12 @@
 
           <section class="notes">
             <div class="notesTitle">
-              <span>[SVG Nota]</span>
+              <span data-icon="nota"></span>
               <h3>Bloc de notas</h3>
             </div>
             <textarea
-              placeholder="Captura tus ideas rápidamente... (Auto-guardado)"
+              placeholder="Captura tus ideas rápidamente... 
+(Auto-guardado)"
             ></textarea>
           </section>
         </aside>
@@ -64,7 +69,10 @@
               placeholder="Escribe una nueva tarea..."
               required
             />
-            <button type="submit">[SVG Agregar] Agregar</button>
+            <button type="submit">
+              <span data-icon="agregar"></span>
+              Agregar
+            </button>
           </form>
 
           <div class="searchTasks">
@@ -73,24 +81,51 @@
               class="textInput"
               placeholder="Buscar tareas (Debounce)..."
             />
-            <span class="searchIcon">[SVG Buscar]</span>
+            <span class="searchIcon" data-icon="buscar"></span>
           </div>
 
           <ul class="tasksContainer">
             <li class="task">
-              <span class="draggableIcon">[SVG Arrastrar]</span>
+              <span class="draggableIcon" data-icon="arrastrar"></span>
               <input type="checkbox" name="taskCompleted" id="task1" />
               <label for="task1">Gimnasio</label>
 
-              <button type="button" title="Eliminar tarea" class="trashBtn">
-                [SVG Basura]
-              </button>
+              <button
+                type="button"
+                title="Eliminar tarea"
+                class="trashBtn"
+                data-icon="basura"
+              ></button>
             </li>
           </ul>
         </section>
       </main>
     </div>
 
+    <script type="module">
+      // 1. Importación con ruta absoluta desde la raíz para evitar errores
+      import { icons } from "./javascript/components/icons.js";
+
+      // 2. Función de renderizado
+      function renderIcons() {
+        console.log("Objeto icons recibido:", icons);
+
+        const elements = document.querySelectorAll("[data-icon]");
+
+        elements.forEach((el) => {
+          const name = el.dataset.icon;
+          if (icons && icons[name]) {
+            el.innerHTML = icons[name];
+            console.log(`✅ Icono "${name}" insertado.`);
+          } else {
+            console.warn(`❌ No se encontró el SVG para: "${name}"`);
+          }
+        });
+      }
+
+      // 3. Ejecutar inmediatamente
+      renderIcons();
+    </script>
     <script>
       const colores = [
         "red",
@@ -102,16 +137,19 @@
         "pink",
         "cyan",
       ];
+
       function aplicarBordes(elemento, nivel = 0) {
         const color = colores[nivel % colores.length];
         elemento.style.border = `1px solid ${color}`;
-        if (elemento.children) {
-          Array.from(elemento.children).forEach((hijo) => {
-            aplicarBordes(hijo, nivel + 1);
-          });
-        }
+
+        Array.from(elemento.children).forEach((hijo) => {
+          aplicarBordes(hijo, nivel + 1);
+        });
       }
-      aplicarBordes(document.body);
+
+      window.addEventListener("DOMContentLoaded", () => {
+        aplicarBordes(document.body);
+      });
     </script>
   </body>
 </html>
