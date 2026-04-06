@@ -7,39 +7,33 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <!-- Contenedor padre -->
     <div class="containerFather">
-      <!-- Header -->
       <header class="headerContainer">
-        <!-- Logo -->
         <div class="logo">
-          <div class="iconLogo">[Icono logo]</div>
+          <div class="iconLogo">[SVG Logo]</div>
           <h1>MindTracker</h1>
         </div>
-        <!-- Botones de configuración -->
         <div class="buttons">
           <button
             type="button"
             class="actionButton"
             aria-label="Descargar datos"
           >
-            [Icono descargar]
+            [SVG Descargar]
           </button>
           <button type="button" class="actionButton" aria-label="Cambiar tema">
-            [Icono sol/luna]
+            [SVG Sol/Luna]
           </button>
         </div>
       </header>
-      <!-- Contenedor dashboard -->
+
       <main class="dashboardContainer">
-        <!-- Lateral, rendimiento y notas -->
         <aside class="counter">
-          <!-- Título rendimiento -->
           <section class="titleCounterSection">
-            <div class="iconDash">[Icono gráfica]</div>
+            <div class="iconDash">[SVG Gráfica]</div>
             <h3>Rendimiento</h3>
           </section>
-          <!-- Sección de contadores -->
+
           <section class="counters">
             <div class="total">
               <h3>0</h3>
@@ -50,10 +44,10 @@
               <p>Listas</p>
             </div>
           </section>
-          <!-- Bloc de notas -->
+
           <section class="notes">
             <div class="notesTitle">
-              <span>[Icono nota]</span>
+              <span>[SVG Nota]</span>
               <h3>Bloc de notas</h3>
             </div>
             <textarea
@@ -61,9 +55,8 @@
             ></textarea>
           </section>
         </aside>
-        <!-- Sección principal de tareas -->
+
         <section class="addTasks">
-          <!-- formulario agregar tareas -->
           <form class="writeTasks">
             <input
               type="text"
@@ -71,32 +64,33 @@
               placeholder="Escribe una nueva tarea..."
               required
             />
-            <button type="submit">[Icono agregar] Agregar</button>
+            <button type="submit">[SVG Agregar] Agregar</button>
           </form>
-          <!-- Barra de búsqueda -->
+
           <div class="searchTasks">
             <input
               type="search"
               class="textInput"
               placeholder="Buscar tareas (Debounce)..."
             />
-            <i class="searchIcon">[Icono buscar]</i>
+            <span class="searchIcon">[SVG Buscar]</span>
           </div>
-          <!-- Lista de tareas -->
+
           <ul class="tasksContainer">
-            Item de tarea individual
             <li class="task">
-              <i class="draggableIcon">[Icono arrastrable]</i>
+              <span class="draggableIcon">[SVG Arrastrar]</span>
               <input type="checkbox" name="taskCompleted" id="task1" />
               <label for="task1">Gimnasio</label>
-              <button type="button" title="Eliminar tarea">
-                <i class="trashIcon">[Icono basura]</i>
+
+              <button type="button" title="Eliminar tarea" class="trashBtn">
+                [SVG Basura]
               </button>
             </li>
           </ul>
         </section>
       </main>
     </div>
+
     <script>
       const colores = [
         "red",
