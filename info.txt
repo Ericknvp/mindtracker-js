@@ -1,3 +1,10 @@
+
+Cualquier cambio:
+git add .
+git commit -m "mensaje"
+git push
+
+
 1. Manipulación del DOM
 En la web de escritorio, solemos manipular el DOM para cambiar el diseño de la página completa o mover elementos. Aquí seleccionaremos el "Dropdown" (la cajita que cae) para controlar su visibilidad.
 
