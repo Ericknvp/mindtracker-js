@@ -2,5 +2,7 @@
 @import "base/global.css";
 @import "base/typography.css";
 @import "layout/layout.css";
-@import "layout/phoneLayout.css" ;
-@import "components/dashContainer.css"; 
+@import "layout/phoneLayout.css";
+@import "components/dashContainer.css";
+@import "components/counters.css";
+@import "components/textInput.css";

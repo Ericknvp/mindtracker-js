@@ -1,0 +1,11 @@
+.inputText {
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--item-bg);
+  border: 1px solid var(--glass-border);
+  outline: none;
+  font-size: 0.95rem;
+}
+#blocTextArea {
+  margin: 10px 0;
+}

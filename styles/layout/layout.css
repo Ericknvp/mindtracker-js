@@ -20,9 +20,7 @@
   flex-direction: row;
   gap: 10px;
 }
-.dashboardContainer section {
-  /* padding: 10px; */
-}
+
 .counter {
   flex: 1;
   display: flex;
@@ -60,7 +58,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 12px 0;
 }
 .notesTitle {
   display: flex;

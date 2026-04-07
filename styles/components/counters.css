@@ -1,0 +1,26 @@
+.cardCounter {
+  height: 120px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 20px 6px;
+  margin: 8px 0;
+}
+.counters {
+  gap: 1rem;
+}
+
+.cardCounter h3 {
+  font-size: 40px;
+  font-weight: 550;
+  margin-bottom: 5px;
+}
+.total {
+  background-color: var(--primary);
+}
+.lists {
+  background-color: var(--success);
+}

@@ -52,14 +52,14 @@
   .counter {
     order: 2;
   }
+    .dashboardContainer .dashContainer {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .containerFather header {
     height: 10vh;
-  }
-  .dashboardContainer section {
-    padding: 5px;
   }
   .notes textarea {
     height: 240px;
@@ -70,4 +70,7 @@
   .counter {
     order: 2;
   }
+     .dashboardContainer .dashContainer {
+    padding: 20px;
+  }  
 }
