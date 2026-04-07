@@ -15,3 +15,28 @@
   border: 2px solid var(--accent);
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
+.searchTasks {
+  position: relative; 
+  display: flex;
+  align-items: center;
+}
+.searchTasks .inputText {
+  width: 100%;   
+  padding-right: 3rem;
+}
+.searchTasks .searchIcon {
+  position: absolute;
+  right: 1rem;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--text-muted);
+  width: 25px;    
+  height: 25px;
+}
+
+.searchTasks:focus-within .searchIcon {
+  color: var(--accent);
+  transition: color 0.3s ease;
+}

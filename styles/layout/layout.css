@@ -38,6 +38,9 @@
   text-align: center;
   gap: 15px;
 }
+.logo h1 {
+  margin-bottom:10px;
+}
 .buttons {
   display: flex;
   flex-direction: row;
@@ -134,4 +137,8 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+.containerFather .headerContainer .logo svg {
+  height: 45px;
+  width: 45px;
 }
