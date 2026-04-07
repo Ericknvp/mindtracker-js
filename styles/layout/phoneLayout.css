@@ -1,0 +1,73 @@
+@media screen and (max-width: 992px) {
+  .containerFather main {
+    flex-direction: column;
+    height: auto;
+  }
+  .counter,
+  .addTasks {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .notes textarea {
+    height: 240px;
+  }
+  .addTasks {
+    order: 1;
+  }
+  .counter {
+    order: 2;
+  }
+}
+@media screen and (max-width: 768px) {
+  .containerFather {
+    padding: 4vh 5%;
+  }
+  .containerFather header {
+    height: 12vh;
+    justify-content: space-between;
+  }
+  .containerFather .headerContainer .buttons {
+    gap: 5px;
+  }
+
+  .containerFather .headerContainer .logo {
+    gap: 5px;
+  }
+  .containerFather .headerContainer .logo h1 {
+    font-size: 24px;
+  }
+  .containerFather .headerContainer .logo .iconLogo svg {
+    height: 38px;
+    width: 38px;
+  }
+  .searchTasks {
+    width: 100%;
+  }
+  .notes textarea {
+    height: 240px;
+  }
+  .addTasks {
+    order: 1;
+  }
+  .counter {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .containerFather header {
+    height: 10vh;
+  }
+  .dashboardContainer section {
+    padding: 5px;
+  }
+  .notes textarea {
+    height: 240px;
+  }
+  .addTasks {
+    order: 1;
+  }
+  .counter {
+    order: 2;
+  }
+}

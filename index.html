@@ -97,6 +97,18 @@
                 data-icon="basura"
               ></button>
             </li>
+            <li class="task" draggable="true">
+              <span class="draggableIcon" data-icon="arrastrar"></span>
+              <input type="checkbox" name="taskCompleted" id="task1" />
+              <label for="task1">Cepillado anal</label>
+
+              <button
+                type="button"
+                title="Eliminar tarea"
+                class="trashBtn"
+                data-icon="basura"
+              ></button>
+            </li>
           </ul>
         </section>
       </main>
@@ -122,31 +134,6 @@
       }
 
       renderIcons();
-    </script>
-    <script>
-      const colores = [
-        "red",
-        "blue",
-        "green",
-        "orange",
-        "purple",
-        "brown",
-        "pink",
-        "cyan",
-      ];
-
-      function aplicarBordes(elemento, nivel = 0) {
-        const color = colores[nivel % colores.length];
-        elemento.style.border = `1px solid ${color}`;
-
-        Array.from(elemento.children).forEach((hijo) => {
-          aplicarBordes(hijo, nivel + 1);
-        });
-      }
-
-      window.addEventListener("DOMContentLoaded", () => {
-        aplicarBordes(document.body);
-      });
     </script>
   </body>
 </html>
