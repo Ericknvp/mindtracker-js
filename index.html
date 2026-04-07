@@ -85,8 +85,7 @@
           </div>
 
           <ul class="tasksContainer">
-            <li class="task"
-            draggable="true">
+            <li class="task" draggable="true">
               <span class="draggableIcon" data-icon="arrastrar"></span>
               <input type="checkbox" name="taskCompleted" id="task1" />
               <label for="task1">Gimnasio</label>
@@ -104,10 +103,8 @@
     </div>
 
     <script type="module">
-      // 1. Importación con ruta absoluta desde la raíz para evitar errores
       import { icons } from "./javascript/components/icons.js";
 
-      // 2. Función de renderizado
       function renderIcons() {
         console.log("Objeto icons recibido:", icons);
 
@@ -117,14 +114,13 @@
           const name = el.dataset.icon;
           if (icons && icons[name]) {
             el.innerHTML = icons[name];
-            console.log(`✅ Icono "${name}" insertado.`);
+            console.log(`Icono "${name}" insertado.`);
           } else {
-            console.warn(`❌ No se encontró el SVG para: "${name}"`);
+            console.warn(`No se encontró el SVG para: "${name}"`);
           }
         });
       }
 
-      // 3. Ejecutar inmediatamente
       renderIcons();
     </script>
     <script>

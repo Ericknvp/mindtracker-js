@@ -43,6 +43,7 @@
     width: 100%;
     margin-bottom: 10px;
   }
+  
 }
 @media screen and (max-width: 768px) {
   .containerFather {
@@ -51,6 +52,9 @@
   .containerFather header {
     height: 12vh;
     justify-content: space-between;
+  }
+  .buttons {
+    gap: 0;
   }
 }
 
@@ -61,6 +65,8 @@
   .dashboardContainer section {
     padding: 5px;
   }
+  
+  
 }
 .logo {
   display: flex;
