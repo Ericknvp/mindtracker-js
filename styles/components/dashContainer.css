@@ -1,0 +1,15 @@
+.dashContainer {
+    background: var(--glass-bg);
+    box-shadow: var(--shadow);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px; 
+    color: var(--text-muted);
+}
+.titleCounterSection .iconDash{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+}

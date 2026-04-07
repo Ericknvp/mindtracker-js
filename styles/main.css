@@ -2,4 +2,5 @@
 @import "base/global.css";
 @import "base/typography.css";
 @import "layout/layout.css";
-@import "layout/phoneLayout.css"
+@import "layout/phoneLayout.css" ;
+@import "components/dashContainer.css"; 

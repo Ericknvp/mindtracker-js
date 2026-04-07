@@ -32,7 +32,7 @@
       </header>
 
       <main class="dashboardContainer">
-        <aside class="counter">
+        <aside class="counter dashContainer">
           <section class="titleCounterSection">
             <div class="iconDash" data-icon="grafica"></div>
             <h3>Rendimiento</h3>
@@ -50,8 +50,8 @@
           </section>
 
           <section class="notes">
-            <div class="notesTitle">
-              <span data-icon="nota"></span>
+            <div class="notesTitle titleCounterSection">
+              <span data-icon="nota" class="iconDash"></span>
               <h3>Bloc de notas</h3>
             </div>
             <textarea
@@ -61,7 +61,7 @@
           </section>
         </aside>
 
-        <section class="addTasks">
+        <section class="addTasks dashContainer">
           <form class="writeTasks">
             <input
               type="text"
@@ -100,7 +100,7 @@
             <li class="task" draggable="true">
               <span class="draggableIcon" data-icon="arrastrar"></span>
               <input type="checkbox" name="taskCompleted" id="task1" />
-              <label for="task1">Cepillado anal</label>
+              <label for="task1">Cepillado</label>
 
               <button
                 type="button"

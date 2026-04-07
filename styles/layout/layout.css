@@ -21,7 +21,7 @@
   gap: 10px;
 }
 .dashboardContainer section {
-  padding: 10px;
+  /* padding: 10px; */
 }
 .counter {
   flex: 1;
