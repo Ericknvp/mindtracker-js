@@ -1,4 +1,3 @@
-Cualquier cambio:
-git add .
-git commit -m "mensaje"
-git push
+MindTrackerJS
+
+Dashboard manejo de JS en Frontend, localstorage, DOM, animaciones, etc.
