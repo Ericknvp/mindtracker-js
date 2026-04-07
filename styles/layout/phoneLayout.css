@@ -55,6 +55,11 @@
     .dashboardContainer .dashContainer {
     padding: 20px;
   }
+  .addTasks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 }
 
 @media screen and (max-width: 480px) {

@@ -5,7 +5,13 @@
   border: 1px solid var(--glass-border);
   outline: none;
   font-size: 0.95rem;
+  border: 2px solid transparent;
 }
 #blocTextArea {
   margin: 10px 0;
+}
+
+.inputText:focus {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
