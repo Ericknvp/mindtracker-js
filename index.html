@@ -54,7 +54,9 @@
               <span data-icon="nota" class="iconDash"></span>
               <h3>Bloc de Notas</h3>
             </div>
-            <textarea id="blocTextArea" class="inputText"
+            <textarea
+              id="blocTextArea"
+              class="inputText"
               placeholder="Captura tus ideas rápidamente... 
 (Auto-guardado)"
             ></textarea>
@@ -135,67 +137,83 @@
 
       renderIcons();
     </script>
-    <button id="debugToggle" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  padding: 10px 15px;
-  background: #333;
-  color: white;
-  border: 1px solid #555;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: sans-serif;
-  font-size: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-">
-  🛠️ Activar Bordes
-</button>
+    <button
+      id="debugToggle"
+      style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 10px 15px;
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-size: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      "
+    >
+      🛠️ Activar Bordes
+    </button>
 
-<script>
-  (function() {
-    const btn = document.getElementById('debugToggle');
-    let isDebugActive = false;
-    
-    // Colores por nivel
-    const borderColors = ['#FF1A1A', '#1AFF1A', '#1A1AFF', '#FF1AFF', '#FFFF1A', '#1AFFFF'];
+    <script>
+      (function () {
+        const btn = document.getElementById("debugToggle");
+        let isDebugActive = false;
 
-    function toggleVisualDebug() {
-      const allElements = document.querySelectorAll('body *');
-      
-      isDebugActive = !isDebugActive;
-      
-      allElements.forEach(el => {
-        // No aplicar bordes al botón de debug en sí mismo
-        if (el.id === 'debugToggle') return;
+        // Colores por nivel
+        const borderColors = [
+          "#FF1A1A",
+          "#1AFF1A",
+          "#1A1AFF",
+          "#FF1AFF",
+          "#FFFF1A",
+          "#1AFFFF",
+        ];
 
-        if (isDebugActive) {
-          // ACTIVAR
-          let depth = 0;
-          let parent = el.parentElement;
-          while (parent && parent !== document.body) {
-            depth++;
-            parent = parent.parentElement;
-          }
-          const color = borderColors[depth % borderColors.length];
-          el.style.setProperty('outline', `1px solid ${color}`, 'important');
-          el.dataset.oldTitle = el.title; // Guardar title original
-          el.title = `Nivel: ${depth} | Tag: ${el.tagName.toLowerCase()}`;
-        } else {
-          // DESACTIVAR
-          el.style.removeProperty('outline');
-          el.title = el.dataset.oldTitle || ''; // Restaurar title
+        function toggleVisualDebug() {
+          const allElements = document.querySelectorAll("body *");
+
+          isDebugActive = !isDebugActive;
+
+          allElements.forEach((el) => {
+            // No aplicar bordes al botón de debug en sí mismo
+            if (el.id === "debugToggle") return;
+
+            if (isDebugActive) {
+              // ACTIVAR
+              let depth = 0;
+              let parent = el.parentElement;
+              while (parent && parent !== document.body) {
+                depth++;
+                parent = parent.parentElement;
+              }
+              const color = borderColors[depth % borderColors.length];
+              el.style.setProperty(
+                "outline",
+                `1px solid ${color}`,
+                "important",
+              );
+              el.dataset.oldTitle = el.title; // Guardar title original
+              el.title = `Nivel: ${depth} | Tag: ${el.tagName.toLowerCase()}`;
+            } else {
+              // DESACTIVAR
+              el.style.removeProperty("outline");
+              el.title = el.dataset.oldTitle || ""; // Restaurar title
+            }
+          });
+
+          // Actualizar estilo del botón
+          btn.textContent = isDebugActive
+            ? "🚫 Quitar Bordes"
+            : "🛠️ Activar Bordes";
+          btn.style.background = isDebugActive ? "#b30000" : "#333";
         }
-      });
 
-      // Actualizar estilo del botón
-      btn.textContent = isDebugActive ? "🚫 Quitar Bordes" : "🛠️ Activar Bordes";
-      btn.style.background = isDebugActive ? "#b30000" : "#333";
-    }
-
-    btn.addEventListener('click', toggleVisualDebug);
-  })();
-</script>
+        btn.addEventListener("click", toggleVisualDebug);
+      })();
+    </script>
   </body>
 </html>
