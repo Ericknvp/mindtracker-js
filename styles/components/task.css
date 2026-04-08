@@ -18,6 +18,24 @@
   width: 25px;
   height: 25px;
   border: 2px solid var(--text-muted);
-  border-radius: 6px; 
-  cursor: pointer; 
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.task input:checked {
+  background-color: var(--success);
+  border: none;
+}
+
+.task input:checked::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  top: 45%;
+  left: 50%;
 }
