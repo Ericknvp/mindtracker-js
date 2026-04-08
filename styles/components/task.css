@@ -1,0 +1,23 @@
+.tasksContainer {
+  gap: 20px;
+}
+
+.task {
+  padding: 0.6rem;
+  background: var(--item-bg);
+  border-radius: 16px;
+  color: var(--text-main);
+  cursor: grab;
+}
+.task label {
+  cursor: grab;
+}
+.task input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--text-muted);
+  border-radius: 6px; 
+  cursor: pointer; 
+}
