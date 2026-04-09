@@ -1,0 +1,21 @@
+.actionButton {
+  border: none;
+  height: 45px;
+  width: 45px;
+  border-radius: 12px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.actionButton svg {
+  height: 22px;
+  width: 22px;
+}
+.actionButton:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+.addButton {
+}
