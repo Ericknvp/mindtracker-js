@@ -18,4 +18,15 @@
 }
 
 .addButton {
+  border: none;
+  height: auto;
+  padding-inline: 12px;
+  border-radius: 12px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.addButton:hover {
+  background-color: var(--primary-hover);
 }
