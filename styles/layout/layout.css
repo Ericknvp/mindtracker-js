@@ -132,6 +132,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
+  height: 30px;
+  width: 30px;
+}
+.tasksContainer .task .trashBtn:hover {
+  background-color: #FAEBEC;
+  color: var(--danger);
 }
 .addTasks {
   display: flex;
