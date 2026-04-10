@@ -1,58 +1,71 @@
 import { icons } from "../components/icons.js";
 
 function detectarTemaSistema() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function aplicar(tema, boton) {
-    document.body.setAttribute('data-theme', tema);
-    if (boton) {
-        const nombreIcono = tema === 'dark' ? 'sol' : 'luna';
-        boton.setAttribute('data-icon', nombreIcono);
-        
-        if (icons && icons[nombreIcono]) {
-            boton.innerHTML = icons[nombreIcono];
-        }
+  document.body.setAttribute("data-theme", tema);
+  if (boton) {
+    const nombreIcono = tema === "dark" ? "sol" : "luna";
+    boton.setAttribute("data-icon", nombreIcono);
+
+    if (icons && icons[nombreIcono]) {
+      boton.innerHTML = icons[nombreIcono];
     }
+  }
+//   const theme = localStorage.getItem("theme");
+
+//   const elementos = document.querySelectorAll(".text-dark-target");
+
+//   elementos.forEach((el) => {
+//     if (theme === "light") {
+//       el.classList.remove("textDark");
+//     } else {
+//       el.classList.add("textDark");
+//     }
+//   });
 }
 
 export function init_darkmode() {
-    const iniciar = () => {
-        const boton = document.getElementById("themeButton");
-        const mq = window.matchMedia('(prefers-color-scheme: dark)');
-        const memoria = localStorage.getItem("theme");
-        
-        const temaInicial = memoria || detectarTemaSistema();
-        aplicar(temaInicial, boton);
+  const iniciar = () => {
+    const boton = document.getElementById("themeButton");
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const memoria = localStorage.getItem("theme");
 
-        if (boton) {
-            boton.onclick = () => {
-                const temaSistema = detectarTemaSistema();
-                const temaActual = document.body.getAttribute('data-theme');
-                let nuevo;
+    const temaInicial = memoria || detectarTemaSistema();
+    aplicar(temaInicial, boton);
 
-                if (temaActual === temaSistema) {
-                    nuevo = temaActual === 'dark' ? 'light' : 'dark';
-                    aplicar(nuevo, boton);
-                    localStorage.setItem("theme", nuevo);
-                } else {
-                    nuevo = temaSistema;
-                    aplicar(nuevo, boton);
-                    localStorage.removeItem("theme");
-                }
-            };
+    if (boton) {
+      boton.onclick = () => {
+        const temaSistema = detectarTemaSistema();
+        const temaActual = document.body.getAttribute("data-theme");
+        let nuevo;
+
+        if (temaActual === temaSistema) {
+          nuevo = temaActual === "dark" ? "light" : "dark";
+          aplicar(nuevo, boton);
+          localStorage.setItem("theme", nuevo);
+        } else {
+          nuevo = temaSistema;
+          aplicar(nuevo, boton);
+          localStorage.removeItem("theme");
         }
-
-        mq.onchange = (e) => {
-            if (!localStorage.getItem("theme")) {
-                aplicar(e.matches ? 'dark' : 'light', boton);
-            }
-        };
-    };
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', iniciar);
-    } else {
-        iniciar();
+      };
     }
+
+    mq.onchange = (e) => {
+      if (!localStorage.getItem("theme")) {
+        aplicar(e.matches ? "dark" : "light", boton);
+      }
+    };
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
 }
