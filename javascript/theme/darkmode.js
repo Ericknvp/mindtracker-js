@@ -1,27 +1,41 @@
+function detectarTemaSistema() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function aplicar(tema) {
+    document.body.setAttribute('data-theme', tema);
+}
+
 export function init_darkmode() {
     const boton = document.getElementById("themeButton");
-    const cuerpo = document.body;
-    const temaRecuperado = localStorage.getItem("theme");
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const memoria = localStorage.getItem("theme");
 
-
-    if (temaRecuperado !== null) {
-        cuerpo.setAttribute('data-theme', temaRecuperado);
+    if (memoria) {
+        aplicar(memoria);
     } else {
-        cuerpo.setAttribute('data-theme', 'light');
+        aplicar(detectarTemaSistema());
     }
 
-    if(boton) {
-        boton.addEventListener('click', function() {
-            const temaActual = cuerpo.getAttribute('data-theme');
+    if (boton) {
+        boton.addEventListener('click', () => {
+            const temaSistema = detectarTemaSistema();
+            const temaActual = document.body.getAttribute('data-theme');
 
-            if(temaActual === 'dark') {
-                cuerpo.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
+            if (temaActual === temaSistema) {
+                const opuesto = temaActual === 'dark' ? 'light' : 'dark';
+                aplicar(opuesto);
+                localStorage.setItem("theme", opuesto);
             } else {
-                cuerpo.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+                aplicar(temaSistema);
+                localStorage.removeItem("theme");
             }
-        })
+        });
     }
 
+    mq.addEventListener('change', (e) => {
+        if (!localStorage.getItem("theme")) {
+            aplicar(e.matches ? 'dark' : 'light');
+        }
+    });
 }
